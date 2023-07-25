@@ -1,4 +1,4 @@
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
+import { Text, TextInput, View, TouchableOpacity, ScrollView } from "react-native";
 
 import {styles} from './styles'
 import { Particpant } from "../../components/Particpant";
@@ -37,13 +37,15 @@ export function Home() {
 
       </View>
 
-      {participants.map((particpant) => (
-        <Particpant 
-            key={particpant} 
-            name={particpant} 
-            onRemove={handleParticpantRemove} />
-      ))}
+    <ScrollView showsVerticalScrollIndicator={false} >
+        {participants.map((particpant) => (
+            <Particpant 
+                key={particpant} 
+                name={particpant} 
+                onRemove={handleParticpantRemove} />
+        ))}
 
+    </ScrollView>
 
       
 

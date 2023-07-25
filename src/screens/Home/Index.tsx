@@ -1,11 +1,18 @@
 import { Text, TextInput, View, TouchableOpacity } from "react-native";
 
 import {styles} from './styles'
+import { Particpant } from "../../components/Particpant";
 
 export function Home() {
 
+    const participants = ['Giovani', 'Kau', 'jv', 'maca', 'adrinan', 'ana', 'frank', 'luis', 'roberto', 'python']
+
     function handleParticpantAdd(){
         console.log('Participante adicionado')
+    }
+
+    function handleParticpantRemove(name: string){
+        console.log(name)
     }
 
   return(
@@ -30,7 +37,16 @@ export function Home() {
 
       </View>
 
-     
+      {participants.map((particpant) => (
+        <Particpant 
+            key={particpant} 
+            name={particpant} 
+            onRemove={handleParticpantRemove} />
+      ))}
+
+
+      
+
     </View>
     
   )
